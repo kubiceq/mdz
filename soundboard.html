@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Buttons Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .btn {
+            flex: 1;
+            margin: 0 10px;
+            padding: 20px;
+            font-size: 18px;
+            background-color: rgba(169, 169, 169, 0.5); /* Translucent grey */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: rgba(169, 169, 169, 0.7); /* Slightly darker on hover */
+        }
+
+        .btn:active {
+            background-color: rgba(169, 169, 169, 0.9); /* Even darker on click */
+        }
+    </style>
+</head>
+<body style="background-image: url('pink-carnations-on-black-background.jpeg');">
+
+<div class="container">
+    <button class="btn" onclick="playSound(1)">HAAAA</button>
+    <button class="btn" onclick="playSound(2)">Halooo</button>
+    <button class="btn" onclick="playSound(3)">Milujem</button>
+    <button class="btn" onclick="playSound(4)">Preco</button>
+</div>
+
+<!-- Hidden audio elements -->
+<audio id="audio1" src="audio/audio/HAAAAA.mp3" preload="auto"></audio>
+<audio id="audio2" src="audio/audio/haloo.mp3" preload="auto"></audio>
+<audio id="audio3" src="audio/audio/milujem_fica.mp3" preload="auto"></audio>
+<audio id="audio4" src="audio/audio/pretoze_nas_miluje.mp3" preload="auto"></audio>
+
+<script>
+    function playSound(buttonNumber) {
+        // Stop any currently playing audio
+        const audios = document.querySelectorAll('audio');
+        audios.forEach(audio => audio.pause());
+
+        // Play the selected audio
+        const audio = document.getElementById('audio' + buttonNumber);
+        audio.currentTime = 0; // Start from the beginning
+        audio.play();
+    }
+</script>
+
+</body>
+</html>
